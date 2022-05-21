@@ -100,7 +100,7 @@ SSH into the control node and follow the steps below:
 - Update the /etc/ansible/hosts file to make Ansible run the playbook on a specific machine. The ELK Server will be installed on the machines listed under `elk` and Filebeat will be installed on the `webservers`.
 - You can verify that the ELK server is running by browsing to http://\[ELK Server Public IP]:5601/
 
-- Helpful commands
+## Helpful commands
 - Installing the ELK server: `ansible-playbook /etc/ansible/install-elk.yml`
 - Installing Filebeat on the webservers: `ansible-playbook /etc/ansible/roles/filebeat-playbook.yml`
 - Installing Metricbeat on the webservers: `ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml`
