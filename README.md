@@ -64,7 +64,6 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows us to efficiently deploy the software to many machines at once.  It also provides us with a baseline template that we can use for future installs, helping to save time and minimize deployment errors.
 
 The [install-elk.yml](Ansible/install-elk.yml) playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Install docker.io for containerization
 - Install pip3, a Python package manager
 - Install the Docker module using pip
