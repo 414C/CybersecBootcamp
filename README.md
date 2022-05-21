@@ -38,3 +38,39 @@ The configuration details of each machine may be found below.
 | Web-1      | DVWA Web Server  | 10.0.0.8         | ubuntu 18.04     |
 | Web-2      | DVWA Web Server  | 10.0.0.9         | ubuntu 18.04     |
 | ELK-Server | ELK Stack Server | 10.1.0.4, Public | ubuntu 18.04     |
+
+### Access Policies
+
+The machines on the internal network are not exposed to the public Internet. 
+
+Only the Jump Box machine can accept SSH connections from the Internet. Access to this machine is only allowed from my public IP.
+
+Machines within the network can only be managed by the Jump Box. From its private IP (10.0.0.4) it can reach the other systems on the virtual network, including the ELK-Server.
+
+A summary of the access policies in place can be found in the table below.
+
+| Name       | Protocol | Publicly Accessible | Allowed IP Addresses |
+|------------|----------|---------------------|----------------------|
+| Jump Box   | SSH      | Yes                 | My public IP         |
+| Web-1      | SSH      | No                  | 10.0.0.4             |
+| Web-2      | SSH      | No                  | 10.0.0.4             |
+| Elk-Server | SSH      | No                  | 10.0.0.4             |
+| Web-1      | HTTP     | Yes                 | My public IP         |
+| Web-2      | HTTP     | Yes                 | My public IP         |
+| Elk-Server | TCP/5601 | Yes                 | My public IP         |
+
+### Elk Configuration
+
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows us to efficiently deploy the software to many machines at once.  It also provides us with a baseline template that we can use for future installs, helping to save time and minimize deployment errors.
+
+The [install-elk.yml](Ansible/install-elk.yml) playbook implements the following tasks:
+- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+- Install docker.io for containerization
+- Install pip3, a Python package manager
+- Install the Docker module using pip
+- Configure the system to provide sufficient memory to run ELK
+- Download and launch a Docker ELK container, setting it to start automatically
+
+The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+
+![alt text](Images/ELKserver-DockerPS.png "ELK Server - docker ps example")
