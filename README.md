@@ -74,3 +74,28 @@ The [install-elk.yml](Ansible/install-elk.yml) playbook implements the following
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![alt text](Images/ELKserver-DockerPS.png "ELK Server - docker ps example")
+
+### Target Machines & Beats
+This ELK server is configured to monitor the following machines:
+- Web-1 - 10.0.0.8
+- Web-2 - 10.0.0.9
+
+We have installed the following Beats on these machines:
+- Filebeat
+- Metricbeat
+
+These Beats allow us to collect the following information from each machine:
+- Filebeat collects log files to monitor activity on important files and system data.
+- Metricbeat gathers information on system resources and usage.  This includes metrics from the CPU, memory, file system, disk and network usage.
+
+### Using the Playbook
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+
+SSH into the control node and follow the steps below:
+- Copy the playbook file to the Ansible control node.
+- Update the hosts file to include entries for the webservers and elk
+- Run the playbook, and navigate to the ELK-Server Kibana IP to check that the installation worked as expected.
+
+- The playbook is filebeat-playbook.yml, and it can be used by copying it to /etc/ansible/roles/
+- Update the /etc/ansible/hosts file to make Ansible run the playbook on a specific machine. The ELK Server will be installed on the machines listed under "elk" and Filebeat will be installed on the "webservers".
+- You can verify that the ELK server is running by browsing to http://\[ELK Server Public IP]:5601/
